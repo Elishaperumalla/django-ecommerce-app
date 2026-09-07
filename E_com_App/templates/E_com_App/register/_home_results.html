@@ -1,0 +1,16 @@
+<div id="products-results">
+    {% if q or category %}
+        <h2>Products</h2>
+        {% if q %}
+            <p>Search: <strong>{{ q }}</strong></p>
+        {% endif %}
+        {% if category %}
+            <p>Category filter applied.</p>
+        {% endif %}
+    {% else %}
+        <h2>Featured products</h2>
+    {% endif %}
+
+    {% include 'E_com_App/register/_products_grid.html' with items=items q=q category=category %}
+</div>
+

@@ -1,0 +1,11 @@
+{% extends 'E_com_App/register/base.html' %}
+
+{% block content %}
+<h2>User Profile</h2>
+<div class="product-card" style="max-width: 520px;">
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Full name:</strong> {{ user.full_name|default:user.get_full_name|default:"-" }}</p>
+    <p><strong>Email:</strong> {{ user.email|default:"-" }}</p>
+</div>
+{% endblock %}
+

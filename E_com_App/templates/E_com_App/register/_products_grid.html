@@ -1,0 +1,22 @@
+<div class="product-grid">
+    {% for item in items %}
+        <div class="product-card">
+            {% if item.image %}
+                <img src="{{ item.image.url }}" alt="{{ item.name }}">
+            {% endif %}
+            <p class="product-title">{{ item.name }}</p>
+            <p class="product-price">₹{{ item.price }}</p>
+            <div class="product-actions">
+                <a class="btn-pill primary" href="{% url 'product_detail' item.id %}">View</a>
+                <a class="btn-pill" href="{% url 'add_to_cart' item.id %}">Add to Cart</a>
+            </div>
+        </div>
+    {% empty %}
+        {% if q %}
+            <p>No products found for "{{ q }}".</p>
+        {% else %}
+            <p>No products available.</p>
+        {% endif %}
+    {% endfor %}
+</div>
+

@@ -1,0 +1,17 @@
+{% extends 'E_com_App/register/base.html' %}
+
+{% block content %}
+<h2>Checkout</h2>
+
+<div class="section-card">
+    {% if items %}
+        {% for item in items %}
+            <p>{{ item.product.name }} x {{ item.quantity }}</p>
+        {% endfor %}
+        <h3>Total: ₹{{ total }}</h3>
+        <button class="btn-pill primary" type="button">Proceed to Payment</button>
+    {% else %}
+        <p>No items in cart.</p>
+    {% endif %}
+</div>
+{% endblock %}
